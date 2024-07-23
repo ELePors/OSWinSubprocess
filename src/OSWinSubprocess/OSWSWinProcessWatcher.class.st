@@ -30,9 +30,10 @@ OSWSWinProcessWatcher >> process: aProcess [
 OSWSWinProcessWatcher >> watch [
 	"active loop to catch the end of the process"
 
-	watchProcess := [ [ process isRunning ]
-		whileTrue: [ 200 milliSeconds wait ].
-		process completionCallback ]
-		forkAt: 35
-		named: 'WinProcess watcher'
+	watchProcess := [
+	                [ process isRunning ] whileTrue: [
+		                200 milliSeconds wait ].
+	                process completionCallback ]
+		                forkAt: 40
+		                named: 'WinProcess watcher'
 ]
